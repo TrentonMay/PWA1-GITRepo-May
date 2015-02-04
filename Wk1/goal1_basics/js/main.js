@@ -258,6 +258,8 @@ console.log('------ conditionals ----------');
         a true or false boolean
     - conditions can be used just about anywhere, not just in conditionals and loops
 */
+    var myVar = 5 > 3;
+    console.log(myVar);
 
 
 
@@ -275,6 +277,9 @@ console.log('------ conditionals ----------');
             //block of code or ‘actions’
          };
 */
+    if (5 > 3){
+        console.log("'5 > 3:', True");
+    }
 
 
 
@@ -289,6 +294,19 @@ console.log('------ conditionals ----------');
 */
 
     // == performs a loose check of two values
+    if ("1" == 1){
+        console.log("'1' == 1, True");
+    };
+    if (1 ==1){
+        console.log("1 == 1, True");
+    };
+    if ("1" === 1){
+        console.log("'1' === 1, False");
+    };
+    if ("1" !== 1){
+    console.log("'1' !== 1, True");
+    };
+
 
 
 
@@ -304,13 +322,36 @@ console.log('------ conditionals ----------');
  ================================================================
  */
 
+    if ("a" === "b"){
+        console.log("a is less than b");
+    }else{
+        console.log("if-else: the 'IF' statement is False")
+    };
+
 
 
     //if - else if - else (allows for multiple options)
-
+    if ("a" === "b"){
+        console.log("a is less than b");
+    }else if ("a" < "c"){
+        console.log("a is less than c");
+    }else if ("a" < "d"){
+        console.log("a is less than d");
+    }else{
+        console.log("if - else if: all others returned False");
+    };
 
 
     //nested conditional statement
+    if ("a" === "a"){
+        if ("b" === "b"){
+        console.log("Nested if-else / b === b: True");
+        }else{
+
+        };
+    }else{
+        console.log("Nested conditionl: 1st IF returned False");
+    };
 
 
 
@@ -331,15 +372,27 @@ console.log('------ conditionals ----------');
  */
 
     //AND logical operator
+    if ( (1 === 1) && ("hi" === "hi") ){
+        console.log('&& logical operator: both sides = True');
+    };
 
 
     //OR logical operator
+    if ( (1 === 1) || ("hi" === "no") ){
+        console.log("|| logical operator: one side = true");
+    };
 
 
     // ! NOT logical operator
+    if (!(1 === 1) || ("hi" === "no") ){
+        console.log("! Not logical operator: left is true converted to not");
+    }else{
+      console.log(" !Not logical operator: both sides = false");
+    };
 
 
     // all logical operators with order of operations
+
 
 
 
@@ -354,7 +407,15 @@ console.log('------ conditionals ----------');
  GOAL
     1. learn if - else
  ********************************************/
+    var weather = "Cloudy";
 
+    if (weather == "Sunny"){
+        bobsMood = "happy";
+        console.log(bobsMood);
+    }else{
+        bobsMood = "sad";
+        console.log(bobsMood);
+    };
 
 
 
@@ -373,9 +434,40 @@ console.log('------ conditionals ----------');
         - else bobsMood = "sad"
     3.  console.log the results after each conditional
  ********************************************/
+    var weather = "Cloudy";
+    var waves = 10;
 
+    if (weather === "Sunny") {
+        bobsMood = "happy";
+        console.log(bobsMood);
+        if (waves === 10){
+            bobsMood = "pumped";
+            console.log(bobsMood);
+        }
+        }else if ((waves >= 5) && (waves <= 9)){
+            bobsMood = "mellow";
+            console.log(bobsMood);
+        }else{
+        bobsMood = "bummed";
+        console.log(bobsMood);
 
+        }else if ((weather === "overcast"){
+            } if ((waves < 10) && (waves >= 7)){
+                bobsMood = "jackedUP";
+                console.log(bobsMood);
 
+        }else if ((waves <= 6) && (waves >= 3)){
+            bobsMood = "totally bummed";
+            console.log(bobsMood);
+        }else{
+            bobsMood = "not happy";
+            console.log(bobsMood);
+    }else{
+        bobsMood = "sad";
+        console.log(bobsMood);
+    };
+
+    console.log("Bob's Mood:", bobsMood);
 
 /*
     BREAKING A TERNARY CONDITIONAL DOWN TO INDIVIDUAL PIECES
