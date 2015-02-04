@@ -74,16 +74,31 @@ console.log('------ variables ----------');
 // string (definition, concatenation, escape character)
 console.log('------ strings ----------');
 
+    var name = "James Bond";
+    console.log(name);
+
     //basic string
+    var testString = "He's in PWA1";
+    console.log("Example 1: ", testString);
 
 
     //string w/ escape characters " \ "
+    var testString = "I need some \"quotes\" to be here.";
+    console.log("Example 2: ", testString);
+
+    var testString = "He\'s in PWA1";
+    console.log("Example 1: ", testString);
 
 
     //string w/ escape characters and mixed single/double quotes
+    var testString = "he\'s in ' + 'PWA1";
+    console.log("Example 1: ", testString);
 
 
     //this example shows that all the "phase" vars above were overwritten
+    var x = 3;
+    var testString = 'he\'s in PWA1 ' + num;
+    console.log("Example 5:", testString);
 
 
 
