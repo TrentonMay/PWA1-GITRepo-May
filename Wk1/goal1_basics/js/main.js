@@ -488,6 +488,12 @@ console.log('------ conditionals ----------');
     - ? = perform the next statement if true
     - : = false (perform the new statement after the :)
  */
+    var weather = 'Sunny';
+    var mood = (weather === 'Sunny' ? 'happy' : 'sad');
+    console.log('mood', mood);
+
+    var smile = true;
+    console.log('I am' + (smile === true ? 'happy' : 'sad') + '!!');
 
 
 
@@ -503,6 +509,10 @@ console.log('------ conditionals ----------');
     4.  console.log the results
  ********************************************/
 
+    var temp = 60;
+    var weather = "Sunny";
+    var student1 = (weather === "Sunny" ? "happy" : ((temp >= 80) ? "content" : "sad"));
+    console.log(student1);
 
 
 // Functions: (definition, whitespace, invocation, arguments, returns)
