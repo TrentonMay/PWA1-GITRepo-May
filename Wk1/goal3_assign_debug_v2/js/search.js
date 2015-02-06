@@ -2,103 +2,104 @@
 (function(){
 	
 	// Variable initialization (DO NOT FIX ANY OF THE BELOW VAR's)
-	var resultsDIV = document.getElementById("results"),
-		searchInput = document.forms[0].search,
-		currentSearch = ''
+	var resultsDIV = document.getElementById("results"),	//Interacting with HTML. Linking resultsDIV to results
+		searchInput = document.forms[0].search,//Interacting with HTML. Linking searchInput to the search field
+		currentSearch = ''//Setting currentsearch to a empty string
 	;
 	
 	// Validates search query
-	var validqte == function(query){
+	var validqte == function(query){	//Needs one = sign. Declares the function "validqte." Also should use camelCase
 		
 		// Trim whitespace from start and end of search query
-		while(query.charAt(0) = " "){
-			query = query.substring(1, query.length);
-		};
-		while(query.charAt(query.length-1) === ""){
-			query = query.substring(0, query.length-1);
-		;
+		while(query.charAt(0) = " "){	//starting a while loop. Under the condition that the first character is a space. Needs three "="
+			query = query.substring(1, query.length);	//sets query parameter to everything after the first character
+		}; //does not need a semi colon
+		while(query.charAt(query.length-1) === ""){		//Declaring while loop. Sees if last character is a white space. Needs space in string
+			query = query.substring(0, query.length-1);	//sets query parameter to everything before the last character
+		;	//needs a brace and needs no semi colon
 		
 		// Check search length, must have 3 characters
-		if(query.length < 3){
+		if(query.length < 3){	//Says if the length of query is less than 3, run this function
+			//Below. The string in the parentheses needs an end quote
 			alert("Your search query is too small, try again.);
 			
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
-			searchInput.focus();
-			return;
-		};
+			searchInput.focus();	//it automatically sets text cursor to input field
+			return;	//Ends the function.
+		}; //unneeded semi colon
 		
-		search(query);
+		search(query);	//calling the function
 	};
 	
 	// Finds search matches
-	var search = function(query)
+	var search = function(query)	//needs brace
 		
 		// split the user's search query string into an array
-		var queryArray = query.join(" ");
+		var queryArray = query.join(" ");	//separating all words in the search query by a space
 		
 		// array to store matched results from database.js
-		var results = [];
+		var results = [];	//sets up the array to store all the words the user inputs
 
 		// loop through each index of db array
-		for(var i=0, j=db.length; i<j; i++){
+		for(var i=0, j=db.length; i<j; i++){	//sets up for loop. Checks length of db and runs if i is < j and ads 1 to i every time its looped
 		
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
-			var dbTitleEnd = db[i].indexOf('|');
-			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);
+			var dbTitleEnd = db[i].indexOf('|');	//determining the position of the string
+			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants
 			
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
-			for(var ii=0, jj=queryArray.length; ii<jj; ii++){
-				var qitem = queryArray[ii].tolowercase();
+			for(var ii=0, jj=queryArray.length; ii<jj; ii++){	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
+				var qitem = queryArray[ii].tolowercase();	//lowercases the selection queryArray makes
 				
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
-				var compare = dbitem.indexOf(qitem);
-				if(compare !== -1){
-					results.push(db[i]);
-				};
-			;
-		;
+				var compare = dbitem.indexOf(qitem);	//finds the location of qitem in dbitem
+				if(compare !== -1){		//runs if compare is not == to -1
+					results.push(db[i]);	//pushes db[i] into the results array
+				}; //does not need a semi colon
+			; //no need of a semi colon. Also needs a brace
+		; //no need of a semi colon. Also needs a brace
 		
-		results.sort();
+		results.sort();	//sorts the results array
 		
 		// Check that matches were found, and run output functions
-		if(results.length = 0){
-			noMatch();
+		if(results.length = 0){	//runs if results length equals 0
+			noMatch();	//calls on noMatch function
 		}else{
-			showMatches(results);
-		};
+			showMatches(results);	//if the above if statement is false then it runs this function
+		};	//unneeded semi colon
 	};
 	
 	// Put "No Results" message into page (DO NOT FIX THE HTML VAR NOR THE innerHTML)
-	var noMatch = function(){
-		var html = ''+
-			'<p>No Results found.</p>'+
-			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'
+	var noMatch = function(){	//sets up the function
+		var html = ''+	//sets html to a blank space and adds it to the following strings
+			'<p>No Results found.</p>'+	//adds more to the string
+			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'//the quote before ">" needs to come after.
 		;
-		resultsDIV.innerHTML = html;
+		resultsDIV.innerHTML = html;	//sets div to the html variable. Pushing it into the actual html document
 	};
 	
 	// Put matches into page as paragraphs with anchors
-	var showMatches = function(results){
+	var showMatches = function(results){	//sets up functions
 		
 		// THE NEXT 4 LINES ARE CORRECT.
-		var html = '<p>Results</p>', 
+		var html = '<p>Results</p>', //sets html variable to this string
 			title, 
 			url
 		;
 		
 		// loop through all the results search() function
-		for(var i=0, j=results.length; i<j; i++){
+		for(var i=0, j=results.length; i<j; i++){	//sets up for loop. Runs if i is < j and adds 1 to i each time it's looped
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
-			titleEnd = results[i].indexOf('|');
-			title = results[i].subString(0, titleEnd);
+			titleEnd = results[i].indexOf('|');	//determining the position of the pipe
+			title = results[i].subString(0, titleEnd);	//then selects the portion it wants
 			
 			// pull the video url after the title
-			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);
+			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);	//selecting the url
 			
 			// make the video link - THE NEXT LINE IS CORRECT.
 			html += '<p><a href=' + url + '>' + title + '</a></p>';
@@ -108,8 +109,8 @@
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
-	document.forms[0].onsubmit = function(){
-		var query = searchInput.value;
+	document.forms[0].onsubmit = function(){	//sets up function
+		var query = searchInput.value;	
 		validqte(query);
 
         // return false is needed for most events - this will be reviewed in upcoming course material
