@@ -1,10 +1,14 @@
+//	Trenton May
+//	6/2/2015
+//	Assignment === Goal 3 Debug
+
 // Create privatized scope using a self-executing function
 (function(){
 	
 	// Variable initialization (DO NOT FIX ANY OF THE BELOW VAR's)
 	var resultsDIV = document.getElementById("results"),	//Interacting with HTML. Linking resultsDIV to results
 		searchInput = document.forms[0].search,//Interacting with HTML. Linking searchInput to the search field
-		currentSearch = ''//Setting currentsearch to a empty string
+		currentSearch = ''//Setting currentsearch to a empty string. Can't identify it's being used
 	;
 	
 	// Validates search query
@@ -24,11 +28,11 @@
 			alert("Your search query is too small, try again.);
 			
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
-			searchInput.focus();	//it automatically sets text cursor to input field
+			searchInput.focus();	//it automatically sets text cursor to input field. Method written incorrectly
 			return;	//Ends the function.
 		}; //unneeded semi colon
 		
-		search(query);	//calling the function
+		search(query);	//calling the function but it is not identifying that the function exists
 	};
 	
 	// Finds search matches
@@ -46,13 +50,13 @@
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
 			var dbTitleEnd = db[i].indexOf('|');	//determining the position of the string
-			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants
+			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants. Method written incorrectly. dbitem needs camelCase
 			
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
 			for(var ii=0, jj=queryArray.length; ii<jj; ii++){	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
-				var qitem = queryArray[ii].tolowercase();	//lowercases the selection queryArray makes
-				
+				var qitem = queryArray[ii].tolowercase();	//lowercases the selection queryArray makes. Method written incorrectly
+
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
 				var compare = dbitem.indexOf(qitem);	//finds the location of qitem in dbitem
@@ -66,9 +70,9 @@
 		
 		// Check that matches were found, and run output functions
 		if(results.length = 0){	//runs if results length equals 0
-			noMatch();	//calls on noMatch function
+			noMatch();	//calls on noMatch function. Is unable to identify that noMatch exists.
 		}else{
-			showMatches(results);	//if the above if statement is false then it runs this function
+			showMatches(results);	//if the above if statement is false then it runs this function. Is unable to identify that showMatches exists
 		};	//unneeded semi colon
 	};
 	
@@ -76,7 +80,7 @@
 	var noMatch = function(){	//sets up the function
 		var html = ''+	//sets html to a blank space and adds it to the following strings
 			'<p>No Results found.</p>'+	//adds more to the string
-			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'//the quote before ">" needs to come after.
+			'<p style="font-size:10px;">Try searching for "JavaScript".  Just an idea.</p>'//the quote before ">" needs to come  before the ";".
 		;
 		resultsDIV.innerHTML = html;	//sets div to the html variable. Pushing it into the actual html document
 	};
@@ -95,27 +99,28 @@
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
-			titleEnd = results[i].indexOf('|');	//determining the position of the pipe
-			title = results[i].subString(0, titleEnd);	//then selects the portion it wants
-			
+			titleEnd = results[i].indexOf('|');	//determining the position of the pipe. Needs "var" before titleEnd
+			title = results[i].subString(0, titleEnd);	//then selects the portion it wants. Method written incorrectly
+
+
 			// pull the video url after the title
 			url = results[i].substring(results[i].indexOf('|')+1, results[i].length);	//selecting the url
 			
 			// make the video link - THE NEXT LINE IS CORRECT.
 			html += '<p><a href=' + url + '>' + title + '</a></p>';
-		};
+		};	//unneeded semi colon
 		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.
 	};
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
 	document.forms[0].onsubmit = function(){	//sets up function
-		var query = searchInput.value;	
+		var query = searchInput.value;	//Method needs to be written correctly or it's not getting the value for the variable "value"
 		validqte(query);
 
         // return false is needed for most events - this will be reviewed in upcoming course material
         // THE LINE DIRECTLY BELOW IS CORRECT
 		return false;
-	;
+	; //needs a brace. Unneeded semi-colon
 
-})();
+})();	//incorrect nesting. Just needs one brace
