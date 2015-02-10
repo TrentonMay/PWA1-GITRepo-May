@@ -337,6 +337,24 @@ var arr3 = ['apple', 'orange', 50393, 7.324];
 */
 
 console.log('------ MORE Operators - typeof() ----------');
+	console.log(typeof 5);
+	console.log(typeof "Hi");
+
+	var str1 = "hello";
+	console.log(typeof str1);
+	console.log(typeof false);
+	console.log(typeof function(){});
+	console.log(typeof obj1);
+	console.log(typeof [0,1,2,3,4]);
+	console.log(typeof  missingVariable);
+
+	console.log(typeof myString === "undefined");
+	if(typeof myString === "undefined"){
+		console.log("myString is undefined");
+
+	}else{
+		console.log("myString is:", myString);
+	}
 
 
 /*
@@ -359,9 +377,33 @@ console.log('------ MORE Operators - typeof() ----------');
 		// statements2
 	};	
 
+
 */
 
 console.log('------ MORE Conditionals - Switch ----------');
+
+	var fruit = "Oranges";
+
+	switch(fruit){
+		case "oranges":
+			console.log("Oranges are $0.59 a pound");
+			break;
+		case "Apples":
+			console.log("Apples are $0.32 a pound");
+			break;
+		case "Bananas":
+			console.log("Bananas are $0.48 a pound");
+			break;
+		case "Cherries":
+			console.log("Cherries are $3.00 a pound");
+			break;
+		case "Mangoes":
+		case "Papayas":
+			console.log("Mangoes and Papayas are $2.79 a pound");
+			break;
+		default:
+			console.log("Sorry we are all out of" + fruit + ".");
+	};
 
 /*******************************************
  STUDENT ACTIVITY 6:
@@ -372,6 +414,20 @@ console.log('------ MORE Conditionals - Switch ----------');
 			if age 18 then console.log "adult"
 			if no age then console.log "No answer"
 ********************************************/
+
+	var age = 13;
+
+	switch(age){
+		case 13:
+			console.log("Child");
+			break;
+		case 18:
+			console.log("Adult");
+			break;
+		default:
+			console.log("No Answer");
+			break;
+	}
 
 
 
@@ -388,6 +444,12 @@ console.log('------ MORE Conditionals - Switch ----------');
 
 console.log('------ MORE Functions ----------');
 
+	var bondsCars = function(){
+		return ["ferrari", "lambo", "vwBug"];
+	};
+
+	var cars = bondsCars();
+	console.log("James Bond Cars,", cars);
 
 	/* 
 		Self Executing Functions
@@ -403,7 +465,11 @@ console.log('------ MORE Functions ----------');
 
 			self function - combining the 2 statement above
 				var fn = (function(){})();	
-	*/	
+	*/
+
+	var fn = function(){
+		
+	})();
 
 
 /*
