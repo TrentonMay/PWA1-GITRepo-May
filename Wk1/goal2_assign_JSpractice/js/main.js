@@ -67,7 +67,7 @@
     var ipsum = "this is test text that is being used as input to a function";
 
     var wordCount = function(ipsum){
-        
+
         return ipsum.length();
     };
 
