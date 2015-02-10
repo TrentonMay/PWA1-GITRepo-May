@@ -55,29 +55,41 @@
     //--------------------------------------------------------
     console.log("2. concat first and last name");
 
-        //PUT FUNCTION HERE
+        var fullName = function(firstname, lastname){
+            return firstname.concat(lastname);
+
+        };
 
     console.log(fullName('James', 'Bond'));
 
     //--------------------------------------------------------
     console.log("3. word count");
-    var ipsum = "this is test text that is being used as input to a function"
+    var ipsum = "this is test text that is being used as input to a function";
 
-        //PUT FUNCTION HERE
+    var wordCount = function(ipsum){
+        
+        return ipsum.length();
+    };
+
 
     console.log(wordCount(ipsum));
 
     //--------------------------------------------------------
     console.log("4. sentence char count");
 
-        //PUT FUNCTION HERE
+        var charCount = function(){
+
+        };
 
     console.log(charCount(ipsum));
 
     //--------------------------------------------------------
     console.log("5. how many vowels in a word");
 
-        //PUT FUNCTION HERE
+        var vowels = "read";
+        var vowelsInword = function(){
+
+        };
 
     console.log(vowelsInWord('JavaScript'));
 
