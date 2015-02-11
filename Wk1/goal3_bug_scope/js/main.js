@@ -80,34 +80,35 @@ console.log('------ Debugging ----------');
      Purpose is to display the error messages so you can see what the error messages
      display.  You may want to see the error messages in Chrome and Firefox.
  ***********************/
+/*
 
- /*
 	//Example1
-	var name = james, course = 'PWA1, month = 3;
-	console.log ("name: ", name + " / course: ", coures + " / month: ", month)
+	var name = "james", course = "PWA1", month = 3;
+	console.log ("name: ", name + " / course: ", course + " / month: ", month);
 
 
     //Example2:
-	//string w/ escape charaters and mixed single/double quotes
-	var phrase = 'he's in ' + ' "PWA1' ";
-	console.log("phase 4: ", phr@se);
+	//string w/ escape characters and mixed single/double quotes
+	var phrase = "he's in " + 'PWA1';
+	console.log("phase 4: ", phrase);
 
 
     //Example3:
 	//nested conditional statement
-	if (a === a){    //1st IF statement
+	if ("a" === "a"){    //1st IF statement
 		//execute this block of code if a is equal to a
-		
-		if (b === b){  //nested IF statement : 2nd IF statement
+
+		 if ("b" === "b"){  //nested IF statement : 2nd IF statement
    			//execute this block of code if b is equal to b
    			console.log("In Nested if-else / b === b: True");
 		}else{       //nested ELSE statement
 			//execute block of code if the matching “IF” statement returns false
-		};
 
-	}else
+		}else{
 		//execute this block of code if the 1st “IF” statement returns false
-		console.log("nested conditional: 1st IF returned false);
+		console.log("nested conditional: 1st IF returned false");
+
+		}
 	};
 
 
@@ -115,23 +116,23 @@ console.log('------ Debugging ----------');
 	var value1 = 'Sunny';
 	var value2 = 10;
 	
-	var mood = function(weather, waves)
+	var mood = function(weather, waves){
 
 		if (weather = "Sunny"){
 			if (waves === 10){
 				Mood = 'PUMPED';
-			}else if ((wave < 9) && (waves >= 5)){
+			}else if ((waves < 9) && (waves >= 5)){
 				Mood = 'mellow';			
 			}else{
 				Mood = 'bummed';
 			};	
 	
 		}else if (weather === 'Overcast'){
-			if ((wave <= 10) !! (waves >= 7)){
+			if ((wave <= 10) || (waves >= 7)){
 				Mood = "JACKED UP";
-			}else if ((waves <= 6) && (waves >= 3)){
-				Mood = 'totally bummed';			
-			)else{
+			}else if ((waves <= 6) && (waves >= 3)) {
+				Mood = 'totally bummed';
+			}else{
 				Mood = 'not happy';
 			};
 
@@ -139,7 +140,7 @@ console.log('------ Debugging ----------');
 			Mood = 'sad'
 		};
 
-		return Moood;
+		return Mood;
 	};
 
 	var moodType = mood(value1, value2);
@@ -151,19 +152,19 @@ console.log('------ Debugging ----------');
     var myNums = [1, 2, 3, 4, 5];
     console.log(myNums);
 
-    for (var i=10, j=myNums.length; i < j; i++){
+    for (var i=0, j=myNums.length; i < j; i++){
 
         console.log("i: " + i);
         console.log("j: " + j);
 
-        if (i === 3) {
-            console.log("testing out the break and it broke");
+        if (i === 3){
+			console.log("testing out the break and it broke");
+			continue;
         };
 
-        continue;
-        console.log('What is at index ' + i + ' = ', myNums[i] );
+        console.log("What is at index " + i + ' = ' + myNums[i] );
     };
-
+/*
 *****************/
 
 /*
