@@ -20,7 +20,7 @@ var fighter1 = ["SwagbobYoloPants", 100, 20]; //array for fighter 1. Contains na
 var fighter2 = ["Lieutenant Dan", 100, 22]; //array for fighter 2. Contains name, health, and damage
 
 function winnerCheck(round){    //this is the winnerCheck function. Checks if there is a winner each round
-    if(fighter1[1] <= 0 && fighter2[1] <= 0){   //this is says that if player1 and player2 die in the same round there is no winner
+    if(fighter1[1] <= 0 && fighter2[1] <= 0){   //this says that if player1 and player2 die in the same round there is no winner
         alert("No Winner"); //lets the user know there is no winner since both players died
         winner = true;  //keeps the tied alert from running if there is actually a winner
         return true;    //ends the function and breaks the loop
@@ -40,16 +40,19 @@ function winnerCheck(round){    //this is the winnerCheck function. Checks if th
     }
 }
 
-function fight(){   //this is the begining of the function that will loop
+function fight(){   //this is the beginning of the function that will loop
     alert(fighter1[0] + ":" + fighter1[1] + " \nSTART\n " +  fighter2[0] + ":" + fighter2[1]);  //This alert runs before the loop and shows the health of the players
     for (var round = 1; round < 10; round++){   //adds up the round number after each loop
+
+        //below is the damage counter
         fighter1[1] = fighter1[1] - Math.floor(Math.random() * (fighter2[2] - (fighter2[2] / 2)) + (fighter2[2] / 2)); //calculates the damage a player does each round
         fighter2[1] = fighter2[1] - Math.floor(Math.random() * (fighter1[2] - (fighter1[2] / 2)) + (fighter1[2] / 2)); //calculates the damage a player does each round
-        if(winnerCheck(round)){ //calls on the winner check function. Also checks if winner has been found
+
+        if(winnerCheck(round)){ //Calls on the winnerCheck function so that we may see if a winner has been found. 
             break; //breaks the loop if a winner has been found
         }
     }
-    if(winner == false){    //checks to see if both players lived after 10 rounds
+    if(winner == false){    //checks to see if both players lived after 10 rounds. If they did then it alerts them that it's a tie
         alert("It's a tie");
 
     }
