@@ -45,9 +45,15 @@
     console.log('------ Goal2: Assignment: JavaScript Practice ----------');
 
     console.log("1. avg of an array of numbers");
-    var avgNumbers = function(arr){
 
-        //CODE GOES HERE
+    var avgNumbers = function(arr){
+        var sum = 0;
+        for(var i = 0; i < arr.length; i++){
+            sum = sum + arr[i];
+        }
+        console.log("The Sum is:", sum);
+        return sum / arr.length;
+
     };
 
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
@@ -60,7 +66,7 @@
 
         };
 
-    console.log(fullName('James', 'Bond'));
+    console.log(fullName('James', ' Bond'));
 
     //--------------------------------------------------------
     console.log("3. word count");
@@ -68,7 +74,7 @@
 
     var wordCount = function(ipsum){
 
-        return ipsum.length();
+        return ipsum.split(" ").length;
     };
 
 
@@ -77,7 +83,8 @@
     //--------------------------------------------------------
     console.log("4. sentence char count");
 
-        var charCount = function(){
+        var charCount = function(ipsum){
+            return ipsum.length;
 
         };
 
@@ -86,19 +93,45 @@
     //--------------------------------------------------------
     console.log("5. how many vowels in a word");
 
-        var vowels = "read";
-        var vowelsInword = function(){
+        var vowelsInword = function(string){
+            var vowels = 0;
+            string = string.toLowerCase();
+            for(var i = 0; i < string.length; i++){
+                var letter = string.charAt(i);
+                if(letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u"){
+                    vowels++;
+                }
 
+            }
+            return vowels;
         };
 
-    console.log(vowelsInWord('JavaScript'));
+    console.log(vowelsInword('JavaScript'));
 
     //--------------------------------------------------------
     console.log("6. find number and create an array of even or odd numbers");
 
-        //PUT FUNCTION HERE
+        var findNum = function(numbers, bool){
+            var arrayNum = [];
 
-    console.log(findNum([31,22,4,67,83,6,5,4]));
+            if(bool === false || bool === null){
+                for(var i = 0; i < numbers.length; i++){
+                    if (!(((numbers[i]/2) - Math.floor(numbers[i]/2)) === 0)){
+                        arrayNum.push(numbers[i]);
+                    }
+                }
+            }else{
+                for(var i = 0; i < numbers.length; i++){
+                    if (((numbers[i]/2) - Math.floor(numbers[i]/2)) === 0){
+                        arrayNum.push(numbers[i]);
+                    }
+                }
+
+            }
+            return arrayNum;
+        };
+
+    console.log(findNum([31,22,4,67,83,6,5,4], true));
     console.log(findNum([31,22,4,67,83,6,5,4], false));
 
 })();
