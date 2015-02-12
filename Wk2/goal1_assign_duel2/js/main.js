@@ -48,7 +48,7 @@ function fight(){   //this is the beginning of the function that will loop
         fighter1[1] = fighter1[1] - Math.floor(Math.random() * (fighter2[2] - (fighter2[2] / 2)) + (fighter2[2] / 2)); //calculates the damage a player does each round
         fighter2[1] = fighter2[1] - Math.floor(Math.random() * (fighter1[2] - (fighter1[2] / 2)) + (fighter1[2] / 2)); //calculates the damage a player does each round
 
-        if(winnerCheck(round)){ //Calls on the winnerCheck function so that we may see if a winner has been found. 
+        if(winnerCheck(round)){ //Calls on the winnerCheck function so that we may see if a winner has been found.
             break; //breaks the loop if a winner has been found
         }
     }

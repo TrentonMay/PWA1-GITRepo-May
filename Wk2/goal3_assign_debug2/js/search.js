@@ -12,68 +12,75 @@
 	;
 	
 	// Validates search query
-	var validqte == function(query){	//Needs one = sign. Declares the function "validqte." Also should use camelCase
+	var validqte = function(query){	//Changed the amount of = signs. Declares the function "validqte." Also should use camelCase
 		
 		// Trim whitespace from start and end of search query
-		while(query.charAt(0) = " "){	//starting a while loop. Under the condition that the first character is a space. Needs three "="
+		while(query.charAt(0) === " "){	//starting a while loop. Under the condition that the first character is a space. PLaced necessary "=="
 			query = query.substring(1, query.length);	//sets query parameter to everything after the first character
-		}; //does not need a semi colon
-		while(query.charAt(query.length-1) === ""){		//Declaring while loop. Sees if last character is a white space. Needs space in string
-			query = query.substring(0, query.length-1);	//sets query parameter to everything before the last character
-		;	//needs a brace and needs no semi colon
-		
+		} //got rid of unneeded semi colon
+		while(query.charAt(query.length-1) === " ") {		//Declaring while loop. Sees if last character is a white space. Needs space in string
+			query = query.substring(0, query.length - 1);	//sets query parameter to everything before the last character
+			//got rid of semi colon
+		}
 		// Check search length, must have 3 characters
-		if(query.length < 3){	//Says if the length of query is less than 3, run this function
-			//Below. The string in the parentheses needs an end quote
-			alert("Your search query is too small, try again.);
-			
+		if(query.length < 3) {	//Says if the length of query is less than 3, run this function
+			//Below. Moved the quotation to inside the parentheses.
+			alert("Your search query is too small, try again.");
+
+
 			// (DO NOT FIX THE LINE DIRECTLY BELOW)
 			searchInput.focus();	//it automatically sets text cursor to input field. Method written incorrectly
 			return;	//Ends the function.
-		}; //unneeded semi colon
+		}
+		 //got rid of unneeded semi colon
 		
 		search(query);	//calling the function but it is not identifying that the function exists
 	};
-	
+
+		var results = []; //Fixes a scope issue with results array
 	// Finds search matches
-	var search = function(query)	//needs brace
+	var search = function(query){	//Placed brace
 		
 		// split the user's search query string into an array
 		var queryArray = query.join(" ");	//separating all words in the search query by a space
 		
 		// array to store matched results from database.js
-		var results = [];	//sets up the array to store all the words the user inputs
+		 results = [];	//sets up the array to store all the words the user inputs
 
 		// loop through each index of db array
-		for(var i=0, j=db.length; i<j; i++){	//sets up for loop. Checks length of db and runs if i is < j and ads 1 to i every time its looped
-		
+		for(var i=0, j=db.length; i<j; i++) {	//sets up for loop. Checks length of db and runs if i is < j and ads 1 to i every time its looped
+
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
 			var dbTitleEnd = db[i].indexOf('|');	//determining the position of the string
-			var dbitem = db[i].tolowercase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants. Method written incorrectly. dbitem needs camelCase
-			
+			//Below. Fixed typo in toLowerCase
+			var dbitem = db[i].toLowerCase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants. dbitem needs camelCase
+
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
-			for(var ii=0, jj=queryArray.length; ii<jj; ii++){	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
+			for (var ii = 0, jj = queryArray.length; ii < jj; ii++) {	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
 				var qitem = queryArray[ii].tolowercase();	//lowercases the selection queryArray makes. Method written incorrectly
 
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
 				var compare = dbitem.indexOf(qitem);	//finds the location of qitem in dbitem
-				if(compare !== -1){		//runs if compare is not == to -1
+				if (compare !== -1) {		//runs if compare is not == to -1
 					results.push(db[i]);	//pushes db[i] into the results array
-				}; //does not need a semi colon
-			; //no need of a semi colon. Also needs a brace
-		; //no need of a semi colon. Also needs a brace
+				}
+			} //Placed a brace
+
+			 //Placed a brace
+		} //PLaced a brace
 		
 		results.sort();	//sorts the results array
 		
 		// Check that matches were found, and run output functions
-		if(results.length = 0){	//runs if results length equals 0
+		if(results.length === 0){	//runs if results length equals 0. Fixed an error with having only one "="
 			noMatch();	//calls on noMatch function. Is unable to identify that noMatch exists.
-		}else{
+		}else {
 			showMatches(results);	//if the above if statement is false then it runs this function. Is unable to identify that showMatches exists
-		};	//unneeded semi colon
+
+		}		//removed unneeded semi colon and brace
 	};
 	
 	// Put "No Results" message into page (DO NOT FIX THE HTML VAR NOR THE innerHTML)
@@ -108,19 +115,19 @@
 			
 			// make the video link - THE NEXT LINE IS CORRECT.
 			html += '<p><a href=' + url + '>' + title + '</a></p>';
-		};	//unneeded semi colon
+		}
 		resultsDIV.innerHTML = html; //THIS LINE IS CORRECT.
 	};
 	
 	// The onsubmit event will be reviewed in upcoming Course Material.
 	// THE LINE DIRECTLY BELOW IS CORRECT
-	document.forms[0].onsubmit = function(){	//sets up function
+	document.forms[0].onsubmit = function() {	//sets up function
 		var query = searchInput.value;	//Method needs to be written correctly or it's not getting the value for the variable "value"
 		validqte(query);
 
-        // return false is needed for most events - this will be reviewed in upcoming course material
-        // THE LINE DIRECTLY BELOW IS CORRECT
+		// return false is needed for most events - this will be reviewed in upcoming course material
+		// THE LINE DIRECTLY BELOW IS CORRECT
 		return false;
-	; //needs a brace. Unneeded semi-colon
+	}; //Placed brace
 
-})();	//incorrect nesting. Just needs one brace
+})();	//
