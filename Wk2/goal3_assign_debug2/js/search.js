@@ -1,6 +1,6 @@
 //	Trenton May
 //	6/13/2015
-//	Assignment === Goal 3 Debug 2 
+//	Assignment === Goal 3 Debug 2
 
 // Create privatized scope using a self-executing function
 (function(){
