@@ -452,6 +452,19 @@ console.log('------------ querySelectorAll -------------------');
 
         attr = href, src, class
 */
+	var navLinks = document.querySelectorAll('#nav li');
+
+	for (var i = 0, max = navLinks.length; i<max; i++){
+		var href = navLinks[i].firstChild.getAttribute('href');
+		console.log('Manipulation HREF:', href);
+
+		if(href === '#1'){
+			var href2 = navLinks[i].firstChild;
+			console.log(href2);
+
+			href2.setAttribute('href', 'http://www.fullsail.com');
+		}
+	}
 
 
 
