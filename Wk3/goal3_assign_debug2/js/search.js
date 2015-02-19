@@ -13,7 +13,7 @@
 	
 	// Validates search query
 	var validqte = function(query){	//Changed the amount of = signs. Declares the function "validqte." Also should use camelCase
-		
+
 		// Trim whitespace from start and end of search query
 		while(query.charAt(0) === " "){	//starting a while loop. Under the condition that the first character is a space. PLaced necessary "=="
 			query = query.substring(1, query.length);	//sets query parameter to everything after the first character
@@ -42,31 +42,32 @@
 	var search = function(query){	//Placed brace
 		
 		// split the user's search query string into an array
-		var queryArray = query.join(" ");	//separating all words in the search query by a space
+		var queryArray = query.split(" ");	//separating all words in the search query by a space
 		
 		// array to store matched results from database.js
 		 results = [];	//sets up the array to store all the words the user inputs
 
 		// loop through each index of db array
-		for(var i=0, j=db.length; i<j; i++) {	//sets up for loop. Checks length of db and runs if i is < j and ads 1 to i every time its looped
+		for(var i=0, j = db.length; i<j; i++) {	//sets up for loop. Checks length of db and runs if i is < j and ads 1 to i every time its looped
 
 			// each db[i] is a single video item, each title ends with a pipe "|"
 			// save a lowercase variable of the video title
 			var dbTitleEnd = db[i].indexOf('|');	//determining the position of the string
 			//Below. Fixed typo in toLowerCase
-			var dbitem = db[i].toLowerCase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants. dbitem needs camelCase
+			var dbItem = db[i].toLowerCase().substring(0, dbTitleEnd);	//lowercases the entire db entry and then selects the portion it wants. dbitem needs camelCase
 
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
 			for (var ii = 0, jj = queryArray.length; ii < jj; ii++) {	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
-				var qitem = queryArray[ii].toLowerCase();	//lowercases the selection queryArray makes. Fixed typo
+				var qItem = queryArray[ii].toLowerCase();	//lowercases the selection queryArray makes. Fixed typo
 
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
-				var compare = dbitem.indexOf(qitem);	//finds the location of qitem in dbitem
+				var compare = dbItem.indexOf(qItem);	//finds the location of qitem in dbitem
 				if (compare !== -1) {		//runs if compare is not == to -1
 					results.push(db[i]);	//pushes db[i] into the results array
 				}
+
 			} //Placed a brace
 
 			 //Placed a brace
@@ -76,9 +77,9 @@
 		
 		// Check that matches were found, and run output functions
 		if(results.length === 0){	//runs if results length equals 0. Fixed an error with having only one "="
-			noMatch();	//calls on noMatch function. Is unable to identify that noMatch exists.
+			noMatch();	//calls on noMatch function. .
 		}else {
-			showMatches(results);	//if the above if statement is false then it runs this function. Is unable to identify that showMatches exists
+			showMatches(results);	//if the above if statement is false then it runs this function.
 
 		}		//removed unneeded semi colon and brace
 	};
