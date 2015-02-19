@@ -59,7 +59,7 @@
 			// loop through the user's search query words
 			// save a lowercase variable of the search keyword
 			for (var ii = 0, jj = queryArray.length; ii < jj; ii++) {	//Sets up for loop. Checks length of jj and sees if ii is <jj and adds 1 to ii every time its looped
-				var qitem = queryArray[ii].tolowercase();	//lowercases the selection queryArray makes. Method written incorrectly
+				var qitem = queryArray[ii].toLowerCase();	//lowercases the selection queryArray makes. Fixed typo
 
 				// is the keyword anywhere in the video title?
 				// If a match is found, push full db[i] into results array
@@ -106,8 +106,8 @@
 		
 			// title of video ends with pipe
 			// pull the title's string using index numbers
-			titleEnd = results[i].indexOf('|');	//determining the position of the pipe. Needs "var" before titleEnd
-			title = results[i].subString(0, titleEnd);	//then selects the portion it wants. Method written incorrectly
+			var titleEnd = results[i].indexOf('|');	//determining the position of the pipe. Added "var" before titleEnd
+			title = results[i].substring(0, titleEnd);	//then selects the portion it wants. Fixed typo in method
 
 
 			// pull the video url after the title
