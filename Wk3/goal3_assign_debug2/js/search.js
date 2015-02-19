@@ -1,6 +1,6 @@
 //	Trenton May
 //	13/2/2015
-//	Assignment === Goal 3 Debug 2
+//	Assignment === Goal 3 Debug 3
 
 // Create privatized scope using a self-executing function
 (function(){
@@ -42,7 +42,7 @@
 	var search = function(query){	//Placed brace
 		
 		// split the user's search query string into an array
-		var queryArray = query.split(" ");	//separating all words in the search query by a space
+		var queryArray = query.split(" ");	//separating all words in the search query by a space. Replaced join with split
 		
 		// array to store matched results from database.js
 		 results = [];	//sets up the array to store all the words the user inputs
@@ -72,7 +72,7 @@
 
 			 //Placed a brace
 		} //PLaced a brace
-		
+
 		results.sort();	//sorts the results array
 		
 		// Check that matches were found, and run output functions
