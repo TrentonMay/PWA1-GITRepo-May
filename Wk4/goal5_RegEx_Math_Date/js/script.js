@@ -305,6 +305,16 @@ console.log('------------ DOM Events -------------------');
  */
 
 console.log('------------ Regular Expressions -------------------');
+/*
+	jamesbond@fullsail.com
+	jamesBond@fullsail.com
+	James-Bond@fullsail.com
+	James.Bond@fullsail.com
+	jamesbond@66.192.104.74
+*/
+
+	var emailRegEx = /^[\w\.\-]+@([\w\-]+\.)+[a-zA-Z]+$/;
+	var email = new RegExp(emailRegEx);
 
 /******************************************************************************
 STUDENT ACTIVITY
@@ -402,6 +412,18 @@ STUDENT ACTIVITY
     console.log('------------ Math Methods -------------------');
 
 
+	//console.log(document.getElementById("tagbox").innerHTML = Math.random());
+
+	var rand = (Math.random() * 10 + 1);
+	console.log("rand;", rand);
+	var num = Math.floor(rand);
+	console.log(num);
+
+	/*
+	console.log(document.getElementById("tagbox").innerHTML = Math.max(5, 10));
+	console.log(document.getElementById("tagbox").innerHTML = Math.min(5, 10));
+	console.log(document.getElementById("tagbox").innerHTML = Math.round(2.3));
+	*/
 
     /******************************************************************************
      STUDENT ACTIVITY
@@ -420,6 +442,14 @@ STUDENT ACTIVITY
     ****************************************************************************/
 
 
+	console.log(Math.max(100, 1000, 50, 2, 55, 75));
+	console.log(Math.min(100, 1000, 50, 2, 55, 75));
+	console.log(Math.random() * 10000 + 100);
+
+	var numRand = (Math.random() * 100 + 10);
+	console.log(numRand);
+	console.log(Math.floor(numRand));
+
 
 
 /*	==================================================================
@@ -434,6 +464,25 @@ STUDENT ACTIVITY
 */
 
     console.log('------------ Date Methods -------------------');
+
+	console.log(new Date());
+
+	var d = new Date();
+
+	/*
+	console.log(d.getDate());
+	console.log(d.getDay());
+	console.log(d.getFullYear());
+	console.log(d.getHours());
+	console.log(d.getMilliseconds());
+	console.log(d.getTime());
+	*/
+
+	console.log(d.setFullYear(2021, 0, 1));
+	document.getElementById("tagbox").innerHTML = d;
+
+	var d = new Date();
+	console.log(typeof d.toString());
 
 
 
