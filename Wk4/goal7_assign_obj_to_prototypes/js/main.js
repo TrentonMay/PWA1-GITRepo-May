@@ -8,3 +8,5 @@ for(var i = 0, j = names.length; i<j, i++;){
 
 }
 
+console.log(person);
+
